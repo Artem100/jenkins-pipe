@@ -6,10 +6,10 @@ pipeline {
     agent { 
         label 'master'
         }
-    triggers { pollSCM('* * * * *') }
+	
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-        timestamps()
+        timestamps() //To show time at logs
     }
 	stages {
 	 stage("create docker image") {
